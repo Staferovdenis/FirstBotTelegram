@@ -34,7 +34,7 @@ public class Bot extends TelegramLongPollingBot {
         sendMessage.setText(text);
 
         try {
-            setButtons(sendMessage);
+//            setButtons(sendMessage);
             execute(sendMessage);
 
         } catch (TelegramApiException e) {
@@ -42,36 +42,36 @@ public class Bot extends TelegramLongPollingBot {
         }
     }
 
-    public void setButtons(SendMessage sendMessage) {//keyboard create
-        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
-        sendMessage.setReplyMarkup(replyKeyboardMarkup);
-        replyKeyboardMarkup.setSelective(true);
-        replyKeyboardMarkup.setResizeKeyboard(true);
-        replyKeyboardMarkup.setOneTimeKeyboard(false);
-
-
-        List<KeyboardRow> keyboardRowList = new ArrayList<>();
-        KeyboardRow keyboardFirstRow = new KeyboardRow();
-
-        keyboardFirstRow.add(new KeyboardButton("/help"));
-        keyboardFirstRow.add(new KeyboardButton("/setting"));
-
-        keyboardRowList.add(keyboardFirstRow);
-        replyKeyboardMarkup.setKeyboard(keyboardRowList);
-
-    }
+//    public void setButtons(SendMessage sendMessage) {//keyboard create
+//        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+//        sendMessage.setReplyMarkup(replyKeyboardMarkup);
+//        replyKeyboardMarkup.setSelective(true);
+//        replyKeyboardMarkup.setResizeKeyboard(true);
+//        replyKeyboardMarkup.setOneTimeKeyboard(false);
+//
+//
+//        List<KeyboardRow> keyboardRowList = new ArrayList<>();
+//        KeyboardRow keyboardFirstRow = new KeyboardRow();
+//
+//        keyboardFirstRow.add(new KeyboardButton("/help"));
+//        keyboardFirstRow.add(new KeyboardButton("/setting"));
+//
+//        keyboardRowList.add(keyboardFirstRow);
+//        replyKeyboardMarkup.setKeyboard(keyboardRowList);
+//
+//    }
 
     public void onUpdateReceived(Update update) {
         Model model = new Model();
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
             switch (message.getText()) {
-                case "/help":
-                    sendMsg(message, "Чем могу помочь?");
-                    break;
-                case "/setting":
-                    sendMsg(message, "Пока что нечего настраивать =)");
-                    break;
+//                case "/help":
+//                    sendMsg(message, "Чем могу помочь?");
+//                    break;
+//                case "/setting":
+//                    sendMsg(message, "Пока что нечего настраивать =)");
+//                    break;
                 default:
                     try {
                         sendMsg(message, Weather.getWeather(message.getText(), model));
