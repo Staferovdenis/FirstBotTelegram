@@ -16,6 +16,9 @@ import java.util.List;
 
 
 public class Bot extends TelegramLongPollingBot {
+    private static String nameBot = "MyTestBotStaferov_bot";
+    private static String tokenBot = "1109880785:AAGlDe6cSvxU0taITHnlS6Avaa5x7UwMApA";
+
     public static void main(String[] args) {
         ApiContextInitializer.init();//start
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();//initialize
@@ -83,10 +86,9 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public String getBotUsername() {
-        return "MyTestBotStaferov_bot";
+        return nameBot;
     }
-
     public String getBotToken() {
-        return "1109880785:AAGlDe6cSvxU0taITHnlS6Avaa5x7UwMApA";
+        return tokenBot;
     }
 }
